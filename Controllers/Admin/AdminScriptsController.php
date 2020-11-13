@@ -5,22 +5,22 @@ namespace NewsParserPlugin\Controllers\Admin;
 class AdminScriptsController
 {
 
-    private $NewsParserPlugin;
+    private $newsParserPlugin;
     private $version;
 
-    public function __construct(string $NewsParserPlugin, string $version)
+    public function __construct(string $newsParserPlugin, string $version)
     {
-        $this->NewsParserPlugin = $NewsParserPlugin;
+        $this->newsParserPlugin = $newsParserPlugin;
         $this->version = $version;
     }
 
     public function enqueueStyles(): void
     {
-        wp_enqueue_style($this->NewsParserPlugin, NEWS_PARSER_PLUGIN_URL . 'admin/css/news-parser-plugin-admin.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->newsParserPlugin, NEWS_PARSER_PLUGIN_URL . 'admin/css/news-parser-plugin-admin.css', array(), $this->version, 'all');
     }
 
     public function enqueueScripts(): void
     {
-        wp_enqueue_script($this->NewsParserPlugin, NEWS_PARSER_PLUGIN_URL . 'admin/js/news-parser-plugin-admin.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->newsParserPlugin, NEWS_PARSER_PLUGIN_URL . 'admin/js/news-parser-plugin-admin.js', array('jquery'), $this->version, false);
     }
 }

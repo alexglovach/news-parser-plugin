@@ -6,7 +6,7 @@ use NewsParserPlugin\Models\BaseModel;
 
 class AdminService
 {
-    public static function NewsParserPluginPageData(): array
+    public static function newsParserPluginPageData(): array
     {
         $data = [
             'title' => ' News Parser Plugin Settings Page Title',

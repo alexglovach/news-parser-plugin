@@ -5,12 +5,12 @@ namespace NewsParserPlugin\Controllers\Frontend;
 class FrontendScriptsController
 {
 
-    private $NewsParserPlugin;
+    private $newsParserPlugin;
     private $version;
 
-    public function __construct($NewsParserPlugin, $version)
+    public function __construct($newsParserPlugin, $version)
     {
-        $this->NewsParserPlugin = $NewsParserPlugin;
+        $this->newsParserPlugin = $newsParserPlugin;
         $this->version = $version;
     }
 

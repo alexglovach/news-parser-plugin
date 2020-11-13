@@ -12,7 +12,7 @@ class HooksController
 {
 
     protected $loader;
-    protected $NewsParserPlugin;
+    protected $newsParserPlugin;
     protected $version;
 
     public function __construct()
@@ -22,7 +22,7 @@ class HooksController
         } else {
             $this->version = '1.0.0';
         }
-        $this->NewsParserPlugin = 'news-parser-plugin';
+        $this->newsParserPlugin = 'news-parser-plugin';
 
         $this->loadDependencies();
         $this->defineAdminHooks();
@@ -31,7 +31,7 @@ class HooksController
 
     public function getNewsParserPlugin(): string
     {
-        return $this->NewsParserPlugin;
+        return $this->newsParserPlugin;
     }
 
     public function getVersion(): string
@@ -53,7 +53,7 @@ class HooksController
         $this->loader->add_action('admin_enqueue_scripts', $adminScriptsController, 'enqueueScripts');
 
         $adminPageController = new AdminPageController($this->getNewsParserPlugin(), $this->getVersion());
-        $this->loader->add_action('admin_menu', $adminPageController, 'NewsParserPluginOptions');
+        $this->loader->add_action('admin_menu', $adminPageController, 'newsParserPluginOptions');
 
     }
 

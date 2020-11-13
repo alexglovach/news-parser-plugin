@@ -8,22 +8,22 @@ use NewsParserPlugin\Services\Admin\AdminService;
 class AdminPageController
 {
 
-    private $NewsParserPlugin;
+    private $newsParserPlugin;
     private $version;
 
-    public function __construct(string $NewsParserPlugin, string $version)
+    public function __construct(string $newsParserPlugin, string $version)
     {
-        $this->NewsParserPlugin = $NewsParserPlugin;
+        $this->newsParserPlugin = $newsParserPlugin;
         $this->version = $version;
     }
 
-    public function NewsParserPluginOptions(): void
+    public function newsParserPluginOptions(): void
     {
-        add_options_page(' news parser plugin', ' news parser plugin', 'manage_options', 'news-parser-plugin', array($this, 'NewsParserPluginPage'));
+        add_options_page('News parser plugin', 'News parser plugin', 'manage_options', 'news-parser-plugin', array($this, 'newsParserPluginPage'));
     }
 
-    public function NewsParserPluginPage(): void
+    public function newsParserPluginPage(): void
     {
-        RenderController::render('Admin/BaseAdminView.php',AdminService::NewsParserPluginPageData());
+        RenderController::render('Admin/BaseAdminView.php',AdminService::newsParserPluginPageData());
     }
 }
