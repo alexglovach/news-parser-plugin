@@ -60,10 +60,6 @@ class HooksController
     private function definePublicHooks(): void
     {
 
-        $pluginPublic = new FrontendScriptsController($this->getNewsParserPlugin(), $this->getVersion());
-        // this files temporary not used
-        $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueueScripts');
-        $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueueStyles');
     }
 
     public function run(): void
