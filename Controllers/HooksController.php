@@ -5,6 +5,7 @@ namespace NewsParserPlugin\Controllers;
 
 use NewsParserPlugin\Controllers\Admin\AdminCronController;
 use NewsParserPlugin\Controllers\Admin\AdminPageController;
+use NewsParserPlugin\Controllers\Admin\AdminParserController;
 use NewsParserPlugin\Controllers\Admin\AdminScriptsController;
 use NewsParserPlugin\Controllers\Frontend\FrontendScriptsController;
 
@@ -59,6 +60,10 @@ class HooksController
         $adminCronController = new AdminCronController();
         $this->loader->add_filter('cron_schedules', $adminCronController, 'addTwoHoursInterval');
         $this->loader->add_action('admin_head', $adminCronController, 'addParserCronTask');
+
+        $adminParserController = new AdminParserController();
+        $this->loader->add_action('parserCheckNewPosts', $adminParserController, 'checkYahooNews');
+        $this->loader->add_action('parserCheckNewPosts', $adminParserController, 'checkYahooEntertainment');
     }
 
     private function definePublicHooks(): void
