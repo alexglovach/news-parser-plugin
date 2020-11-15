@@ -40,7 +40,6 @@ define('NEWS_PARSER_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 //check and run composer
 if (!file_exists(NEWS_PARSER_PLUGIN_PATH . '/vendor')) {
-    error_log('run composer');
     exec(
         "cd " . NEWS_PARSER_PLUGIN_PATH . " &&
         export HOME=" . NEWS_PARSER_PLUGIN_PATH . " &&

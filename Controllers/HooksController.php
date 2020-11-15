@@ -3,6 +3,7 @@
 namespace NewsParserPlugin\Controllers;
 
 
+use NewsParserPlugin\Controllers\Admin\AdminCronController;
 use NewsParserPlugin\Controllers\Admin\AdminPageController;
 use NewsParserPlugin\Controllers\Admin\AdminScriptsController;
 use NewsParserPlugin\Controllers\Frontend\FrontendScriptsController;
@@ -55,6 +56,9 @@ class HooksController
         $adminPageController = new AdminPageController($this->getNewsParserPlugin(), $this->getVersion());
         $this->loader->add_action('admin_menu', $adminPageController, 'newsParserPluginOptions');
 
+        $adminCronController = new AdminCronController();
+        $this->loader->add_filter('cron_schedules', $adminCronController, 'addTwoHoursInterval');
+        $this->loader->add_action('admin_head', $adminCronController, 'addParserCronTask');
     }
 
     private function definePublicHooks(): void
